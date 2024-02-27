@@ -1,0 +1,1551 @@
+
+#第一步改学习率和轮数，发现学习率和轮数对实验结果有一定的影响，最初设置比较适合
+
+对输入进行了图对比学习，对原视频图和摘要图做了图对比学习
+奖励函数为reward = (lm + lc + ld) * 0.3   epoch=60   lr=1e-5
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4021756790334396
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3416024246403566
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.40801032605226395
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.49177251046552806
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4086148818405396
+
+对输入进行了图对比学习，对原视频图和摘要图做了图对比学习
+奖励函数为reward = (lc_m + ld_m) * 0.5 epoch=20   lr=1e-5
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.3611625809741398
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.24606061099030568
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4311487703400654
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.48609498687391123
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.3847960836379064
+
+对输入进行了图对比学习，对原视频图和摘要图做了图对比学习
+奖励函数为reward = (lc_m + ld_m) * 0.5  epoch=60   lr=1e-5
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.3611625809741398
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3416024246403566
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4311487703400654
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.48609498687391123
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.40390444636791656
+
+对输入进行了图对比学习，对原视频图和摘要图做了图对比学习
+奖励函数为reward = (lc_m + ld_m) * 0.5  epoch=60   lr=1e-4
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.3611625809741398
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3416024246403566
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4161077184133678
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.49177251046552806
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4020317407009005
+
+对输入进行了图对比学习，对原视频图和摘要图做了图对比学习
+奖励函数为reward = (lc_m + ld_m) * 0.5  epoch=60   lr=1e-3    0
+
+#第二步：改grace_model的encoder模型，encoder是一个两层的卷积 先训练grace_model模型
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.7
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.41706108340013975
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.0
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.45089181286528357
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.40801032605226395
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.48609498687391123
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.35241164183831974
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.7
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.41706108340013975
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.371161377069126
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39279755932037047
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4161077184133678
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.0
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.3194255476406008
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.7
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4021756790334396
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3416024246403566
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4311487703400654
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.48609498687391123
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.41210706597977653
+2023-04-16 15:57:19
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.4
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.3611625809741398
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.24606061099030568
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.40801032605226395
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.48609498687391123
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.38016839478034614
+
+#证明tau对实验结果的影响比较大
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.9
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.3611625809741398
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3416024246403566
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.40801032605226395
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.49177251046552806
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4004122622286797
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.6
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4021756790334396
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.24606061099030568
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.40801032605226395
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.48609498687391123
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.3883710143922061
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4021756790334396
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.371161377069126
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.40801032605226395
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.49177251046552806
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.41452667232629353
+
+#目前最优的结果
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.41706108340013975
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3416024246403566
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.45089181286528357
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4311487703400654
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.4346485710583785
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4150705324608448
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.0
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.371161377069126
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39279755932037047
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4161077184133678
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.0
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.2360133309605729
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0002
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4021756790334396
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.371161377069126
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39951346901111
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.40801032605226395
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.48609498687391123
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4133911676079701
+
+tvsum
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+14:47 - 17:05
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5654048527520442
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5781666945200056
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5374841075446579
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5604879555598068
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5911101533668188
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5665307527486667
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.7
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+17:12-18:52
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5713332469745002
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5781666945200056
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5374841075446579
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5630424108707238
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5911101533668188
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5682273226553413
+
+
+#做了连接以后的
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.7
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.41706108340013975
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3482151910921545
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.4329413038646831
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.3964330362514768
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.4346485710583785
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4058598371333666
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.00001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.7
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.3968932472138297
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.34916714537982924
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.4389582069176585
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4137101187663764
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.527478591232636
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.42524146190206596
+
+tvsum
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.00001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.7
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.567522556679004
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5543963683209293
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5085442339206552
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5431650191220283
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5859452696749536
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5519146895435141
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.7
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+8:53-9:40
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.41706108340013975
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.371161377069126
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.39279755932037047
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.0
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.0
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.23620400395792726
+
+
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0001
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.7
+num_epochs: 200
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.42887591243540096
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.32623916622388804
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.37008882536511256
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4229700188691076
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.4591612125132995
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4014670270813617
+
+############################################################################################
+在最优结果的基础上改变drop_edge_rate_1和drop_feature_rate_1
+############################################################################################
+1、改变drop_edge_rate1
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.4
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+#################################################################################################
+drop_edge_rate_1和drop_feature_rate_1在小于0.5时对F1值影响不大，当两者特别大时，如设置为0.9，则对原图的破坏过大
+#################################################################################################
+
+
+#加了dropout，运行3轮的结果
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 30
+CCNConv 1024, 512;512, 256
+
+0.428
+运行600轮的结果
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.5220050986629199
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3305344779565922
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5371337237340061
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.38735870379812254
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.433526223667778
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4421116455638837
+
+
+需运行3个半小时
+TVSUM
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.39319741857002477
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.4982158408152534
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5023301101458764
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.3678073535051562
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5738007120314733
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.46707028701355685
+
+#仅给s_output加了dropout
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+第二个是0.0
+
+
+#仅给s_output加了dropout，运行3轮的结果
+Tvsum
+第二个是0.0
+
+#给s_output加了dropout， 给self.fc2加了dropout
+Tvsum
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5325299034162951
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5744259556333163
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.36319784649103193
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.38453601103430773
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.37875085846193385
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.44668811500737704
+
+#仅给self.fc2加了dropout,去掉了第二次对feature的优化
+Tvsum
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+k1  0.4187802995087383
+
+运行一下不加dropout的结果
+Tvsum
+num_hidden: 256
+num_proj_hidden: 256
+grace_lr = 0.0005
+drop_edge_rate_1: 0.2
+drop_feature_rate_1: 0.3
+tau: 0.8
+num_epochs: 600
+CCNConv 1024, 512;512, 256
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.0
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5437410595418904
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5629381789576027
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5604879555598068
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.0
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.33343343881186
+
+仅做连接，不训练10次，不加dropout
+10:16-13:21
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5666306204481055
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5377013701491483
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5629381789576027
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5477275713190318
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5896718459184517
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.560933917358468
+
+
+
+看一下pre_spot_score与probs
+
+训练找最优轮数
+原论文的复现，给s_output加dropout, 轮数为20轮
+Summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4342631178225661
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3873634590947682
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.44844624584928344
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.45049602026435914
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5290011283496527
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4499139942761259
+
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5878888869779686
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5482499458222098
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5484368538298453
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5725715733742905
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5740493948242593
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5662393309657148
+
+轮数为60轮
+tvsum
+14:44 -16:37
+train_loss持续下降，val_loss上升持平或直接持平
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5878888869779686
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5870315926961512
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5554562912154801
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5746783702261167
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6048815630523399
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5819873408336113
+
+summe
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4342631178225661
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.38589666460686206
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5050884542483745
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.438594380654973
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5278016863604774
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4583288607386506
+
+lc改为lc_m后  60轮
+此时val_loss变化更大，先上升后不变
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4342631178225661
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.4069509645693545
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.4682897730727273
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.47704778102138967
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5238057358889943
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4620714744750064
+
+tvsum
+
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5863037565257799
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5827616655903716
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5521142621211894
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5798101411471381
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6051498106947923
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5812279272158543
+
+这个结果出来以后，只将ld改为ld_m
+
+tvsum
+
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5876873907965665
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5889101669292225
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.555629313246082
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5713413939582567
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6068240191941495
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5820784568248554
+
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4288190407791281
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.39591730332442265
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.45327376978641976
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4548251884130467
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5286780332218115
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.45230266710496575
+
+同时将lc改成lc_m，将ld改成ld_m
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4288190407791281
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3886134401988833
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.45327376978641976
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4771920679041434
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5280180374505553
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.45518327122382596
+
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5876873907965665
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5879848756874033
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5527079463924025
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5735633599350661
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6115017112907172
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.582689056820431
+以上为main
+
+reward为lc_m & ld_m 对原图做一次图对比学习,对摘要图做一次图对比学习，加连接，在以上main的基础上
+main_GraphConstrastive_1
+summe
+
+tvsum
+
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5868443480386561
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5736529547496223
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5617190846973376
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.570427142238271
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5892268918889813
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5763740843225736
+
+reward为lc_m & ld_m 对原图做一次图对比学习,对摘要图做一次图对比学习，加连接，在以上main的基础上 给self.fc2做dropout
+可证明不需要在self.fc2做dropout
+main_GraphConstrastive_1
+
+summe
+
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5836401229912555
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5496130351182562
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5597098464080036
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5310282240985847
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5916023356950395
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5631187128622278
+
+reward为lc_m & ld_m 对原图做一次图对比学习，在内循环对原图做一次图对比学习，对摘要图做一次图对比学习，加连接，在以上main的基础上 (不应采用new_feature和new_key_feature)
+
+summe
+
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5996395402556248
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5734706229580632
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5582735414466569
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5981270454533864
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5979304056551943
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.585488231153785
+
+reward为lc_m & ld_m 对原图做一次图对比学习，在内循环对原图做一次图对比学习，对摘要图做一次图对比学习，加连接，在以上main的基础上 (不采用new_feature和new_key_feature)
+main_GraphConstrastive_1
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.47494587709065395
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.4006611417523235
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5119907786884219
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4888064118947918
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5278089972842481
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4808426413420879
+
+tvsum
+
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6121913531753871
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.580253576420586
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5627354215134691
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5825633847216439
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6034602369625912
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5882407945587355
+
+修改encoder模型 仅进行drop_feature 不采用new_feature和new_key_feature
+main_GraphConstrastive_1
+summe
+
+tvsum
+
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.583998787154649
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.44907688143324764
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5694901797800147
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5794033462005237
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6017296623946111
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5567397713926093
+
+修改encoder模型 仅进行drop_feature 不采用new_feature和new_key_feature
+对adj进行随机删除，那么我们在这里对adj做池化操作得到pool_adj
+main_GraphConstractive_2
+summe
+
+tvsum
+
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5776178845272192
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5598770196321585
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5633152881580228
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5641247775901987
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6161466659886194
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5762163271792438
+
+reward为0.7*lc_m & 0.3*ld_m 用以上训练的最优结果，即0.48和0.588
+main_GraphConstractive_1
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.48308962399810185
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.40175889277324106
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5303889260877406
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4518179792742078
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5278089972842481
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4789728838835079
+
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6130477959232291
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5819880708518632
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5710598618789283
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5757035912120525
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.604212012863798
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5892022665459742
+
+reward为0.8*lc_m & 0.2*ld_m 用以上训练的最优结果，即0.48和0.588
+main_GraphConstrastive_1
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4935405251770394
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3955384133848276
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5016989903235356
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.47030709429953355
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.529120024970861
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4780410096311594
+
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6103639093102495
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5840373531000955
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5785102083521787
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.580260645258589
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6003137998307343
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5906971831703693
+
+reward为0.9*lc_m & 0.1*ld_m 用以上训练的最优结果，即0.48和0.588
+main_GraphConstrastive_1
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.47720096513688554
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3855370426665998
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5023268541256701
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.46041321071000174
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5276949423227141
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.47063460299237425
+
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6057304632159755
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5865526206950823
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5723049468091348
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5663035279720525
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6070545542070434
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5875892225798577
+
+reward为0.6*lc_m & 0.4*ld_m 用以上训练的最优结果，即0.48和0.588
+main_GraphConstrastive_1
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.47122261776950924
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3775795749629602
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5081751400437802
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.44127557708975845
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5276949423227141
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4651895704377444
+
+tvsum
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6093496440381483
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5785133669793805
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5587554355541462
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.584813640537803
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6079775877199051
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5878819349658767
+0.4 ， 0.6
+
+sumMe
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.48555272407955974
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.39701414182698763
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5190875654104159
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.46012239840799757
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5281320924120895
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4779817844274101
+TVSum
+—————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6014270435776515
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5863480372745178
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.575858587407086
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5779408853062962
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6038171708265603
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5890783448784223
+0.3,0.7
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.47768735346453123
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.40929211362516815
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5358585030954898
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.48817316040420744
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5290084392734234
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.488003913972564
+TVSum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6070619157645643
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5777507746452475
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5747229591817993
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5774658302923419
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6032201542849571
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.588044326833782
+
+0.2 0.8
+summe
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4817670589956554
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.41839812845163793
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5374050575369835
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4964222476000506
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5276949423227141
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4923374869814083
+tvsum
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6039524612755358
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.579575530332755
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.566665923632349
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5809315070999245
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6023083766830908
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5866867598047311
+
+0.1, 0.9
+summe
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.48361355187908395
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.38111977485335957
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5132375512739286
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.46515902708222256
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5276949423227141
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4741649694822617
+
+TVSum
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6053870477613167
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5830837188391239
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.56466180533294
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.575182339424194
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6052041307551203
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5867038084225389
+
+不加每次仅train，而不加val
+在pytorch中，模型的参数更新只发生在训练阶段，而不是验证阶段。在验证阶段，模型仅使用当前的参数对验证集进行预测，而不对
+模型的参数进行更新，这是为了防止模型在验证集上过度拟合。当您在训练期间使用验证集来监视模型的性能时，可以使用验证集的损失或准确性
+指标来选择最佳的模型参数。一般来说，可以在每个训练周期结束时计算验证集的损失或准确性，并将其与之前的最佳性能进行比较。如果当前性能更好，则可以将当前
+的模型参数保存下来，并将其用于下一个训练周期。
+为了实现这个过程，可以使用pytorch中的'torch.optim'优化器和’torch.utils.data.DataLoader‘数据加载器来训练和验证模型。可以使用torch.optim来定义优化器
+例如'SGD'、’Adam‘等，它们将自动更新模型的参数。
+
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.40228045260099476
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3250994191504267
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.38445194219630147
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.41028310989487415
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.46242645968908735
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.39690827670633694
+
+奖励函数为 lc_m & ld_m tau值为0.8
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.483280567174088
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3953768100538616
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.4696699118039943
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.48760585217163444
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5286780332218115
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.47292223488507795
+
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.598970193450372
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5889997354852345
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5703767056151061
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5737369431689378
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6056965269057673
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5875560209250835
+
+tau=0.6
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6121913531753871
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5778062821521894
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5684504483874229
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5969464935990495
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6010579174445713
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.591290498951724
+
+summe
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4654058050619366
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3924669545200709
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.49505960968396473
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4920088490528312
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5286780332218115
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4747238503081229
+
+tau = 0.4
+TVSum
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6033391847664212
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5753648732393586
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5672085470487453
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5736283237053488
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6106214037465658
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.586032466501288
+
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.49622023984527325
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.40550466630759896
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.4760339287816947
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4954306536854758
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5240202031237591
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.47944193834876037
+
+对于奖励函数的设置仅用lc_m
+summe
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4792860555541642
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.41032431816166
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5235011125622032
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.49613623349147506
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.527478591232636
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4873452622004277
+
+TVSum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6033859076953598
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5747041849554646
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5713414425579024
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5862718527970592
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5964905905965636
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.58643879572047
+
+仅用ld_m
+
+TVSum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6068600627790944
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5658405718525004
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5600039091654518
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5931581216172586
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6013854401591382
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5854496211146886
+
+Summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.47403231133236545
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.40989201114421714
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5092696787188283
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4890430536653737
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5290084392734234
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.48224909882684164
+
+仅用摘要生成器
+Summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.39308167181057974
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.2673909430491417
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.4410422910448788
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.3712848983164784
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.48406149061696385
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.3913722589676084
+
+TVSum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5774404214151043
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.55439648328468
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5487656877796614
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5770544523764138
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6109945524957295
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5737303194703178
+
+GCN
+SUMME
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4210181041788233
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3424778614575169
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.4340537194253041
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4188543956332982
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5531262761123269
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.43390607136145387
+TVSum
+
+
+有监督
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.47403231133236545
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.40989201114421714
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5092696787188283
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.4890430536653737
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5290084392734234
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.48224909882684164
+
+tvsum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6068600627790944
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5658405718525004
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5600039091654518
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5931581216172586
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6013854401591382
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5854496211146886
+有监督
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.48445623833299417
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.4165451176445588
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5047972739199232
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.46442238163510485
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5293315344012648
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.47991050918676914
+
+tvsum
+
+#labels加sigmoid的有监督
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.48899069119463123
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.4008899452097845
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.4887507658630728
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.5175769953876633
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5278089972842481
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.48480347898788007
+
+TVSum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6002644262396584
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5827097734928134
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5701626189773411
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5783338428875745
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6215378368581495
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5906016996911074
+
+加l1正则化
+TVSum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6058493688361714
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5837264214824096
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5762707059219618
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5818963219184592
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.608435572956102
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5912356782230208
+
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.46427108140094714
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.4047666299856843
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.5594574054518022
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.46130903048083977
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.528025348374326
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.48356589913871983
+
+加l1、l2正则化
+TVSum
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5961163571658775
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5884257340143213
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5599995964332282
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5872748457586947
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6078502838699438
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.587933363448413
+
+
+邻接矩阵构建时，现在用的是cosine相似度
+那么我们对比一下Dot Product、Gaussian和Concatenation的效果
+可视化实验
+把有监督部分加上
+计算reward时bins对最终结果的影响，关于bin的数值设置问题
+
+动态图实验
+在main_GraphContrastive_3中改进
+
+——————————————————————————————————————————
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.598970193450372
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5889997354852345
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5703767056151061
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5737369431689378
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6056965269057673
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5875560209250835
+
+图对比学习,仅删除边
+
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.43136767815780264
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.3901114898806362
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.554984611005733
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.46624474908065955
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5199313528114654
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4725279761872594
+
+TVSum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.5842268800222109
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5724082323427173
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5624068005529925
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.570089572802503
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.5998275873580933
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.5777918146157034
+
+仅对特征做掩码
+
+summe
+This is K1:
+The real_f1 is 0.6557849588662152, the pre_f1 is 0.4760976577572783
+This is K2:
+The real_f1 is 0.5936870250630568, the pre_f1 is 0.39930280893335846
+This is K3:
+The real_f1 is 0.7128271908637462, the pre_f1 is 0.48186598225602306
+This is K4:
+The real_f1 is 0.6442415847765866, the pre_f1 is 0.47081633664945166
+This is K5:
+The real_f1 is 0.6059260397739396, the pre_f1 is 0.5272714349216419
+——————————————————————————————————————————
+The avg real_f1 is0.6424933598687088, the avg pre_f1 is 0.4710708441035507
+
+TVSum
+This is K1:
+The real_f1 is 0.6307371783000498, the pre_f1 is 0.6155605102615718
+This is K2:
+The real_f1 is 0.6256183316823789, the pre_f1 is 0.5727648395006502
+This is K3:
+The real_f1 is 0.625397227736239, the pre_f1 is 0.5721786920577123
+This is K4:
+The real_f1 is 0.6450169414830682, the pre_f1 is 0.5820891825983974
+This is K5:
+The real_f1 is 0.6558841036986484, the pre_f1 is 0.6085007837859335
+——————————————————————————————————————————
+The avg real_f1 is0.6365307565800769, the avg pre_f1 is 0.590218801640853
